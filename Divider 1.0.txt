@@ -1,0 +1,34 @@
+Division Mips
+  
+
+      inp
+        sta val
+        inp
+        sta base
+        sub val
+        brp aww
+loop    lda val
+        sub base
+        sta val
+        lda count
+        add one
+        sta count
+        lda zero
+        sub val
+        brz yay
+        brp aww
+        bra loop
+yay     lda count
+        out
+        hlt
+aww     lda fail
+        out
+        out
+        hlt
+start   dat
+base    dat
+val     dat 000
+count   dat 000
+one     dat 001
+zero    dat 000
+fail    dat 013

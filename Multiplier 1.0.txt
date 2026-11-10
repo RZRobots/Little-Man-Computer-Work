@@ -1,0 +1,28 @@
+        inp
+        sta base
+        inp
+        sta mult
+loop    lda val
+        add base
+        sta val
+        lda count
+        add one
+        sta count
+        lda mult
+        sub count
+        brz yay
+        bra loop
+yay     lda val
+        out
+        hlt
+base    dat
+mult    dat
+val     dat 000
+count   dat 000
+one     dat 001
+two     dat 011
+
+
+
+Issues:
+Crashes with overflow errors

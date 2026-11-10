@@ -1,0 +1,39 @@
+Modulus in MIPS      
+
+  inp
+        sta temp
+        inp
+        sta base
+        sub temp
+        brp aww
+loop    lda temp
+        sta val
+        lda count
+        add one
+        sta count
+        lda val
+        sub base
+        sta temp
+        lda zero
+        sub val
+        brp yay
+        bra loop
+yay     lda zero
+        sub val
+        sta temp
+        lda base
+        sub temp
+        out
+        hlt
+aww     lda fail
+        out
+        out
+        hlt
+start   dat
+base    dat
+val     dat 000
+count   dat 000
+one     dat 001
+zero    dat 000
+fail    dat 013
+temp    dat 000

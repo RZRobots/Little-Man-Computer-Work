@@ -1,0 +1,45 @@
+        bra start
+flip    lda mult
+        sta spare
+        lda base
+        sta mult
+        lda spare
+        sta base
+        bra loop
+start   inp
+        sta base
+        inp
+        sta mult
+        sub base
+        brp flip
+loop    lda mult
+        sub count
+        brz yay
+        lda val
+        add base
+        sta val
+        lda count
+        add one
+        sta count
+        lda val
+        brp loop
+        lda bad
+        out 
+        hlt
+yay     lda val
+        out
+        lda mult
+        out
+        hlt
+base    dat
+mult    dat
+val     dat 000
+count   dat 000
+one     dat 001
+bad     dat 13
+spare   dat 000
+
+
+Fixes:
+Now the program automatically chooses which number is the base and multiplier regardless of the order
+Returns 13 for overflow errors
