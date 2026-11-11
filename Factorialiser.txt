@@ -1,0 +1,49 @@
+Factorial in MIPS    
+
+    inp
+        sta factorial
+        sta count
+loop    lda zero
+        sta count1
+        lda factorial
+        sub count
+        brz first
+        lda val
+        sta num2
+        lda zero 
+        sta val
+second  lda count
+        sub one
+        sta num3
+        sta count
+        sub one
+        brz yay
+        lda mark
+        bra multiply
+multiply lda val
+        add num2
+        sta val
+        out
+        lda count1
+        add one
+        sta count1
+        lda num3
+        sub count1
+        out
+        brz loop
+        bra multiply
+yay     lda val
+        out
+        hlt
+first   lda factorial
+        sta num2
+        bra second
+factorial dat 000
+count   dat 000
+one     dat 001
+zero    dat 000
+val     dat 000
+num2    dat 000
+num3    dat 000
+count1  dat 000
+mark    dat 999
